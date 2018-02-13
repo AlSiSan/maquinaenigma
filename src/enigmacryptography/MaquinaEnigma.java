@@ -22,9 +22,9 @@ public class MaquinaEnigma {
      */
     public MaquinaEnigma(){
         entrada = new Rotor("ABCDEFGHIJKLMNOPQRSTUVWXYZ", '-');
-        rotor1 = new Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q');
-        rotor2 = new Rotor("AJDKSIRUXBLHWTMCQGZNPYFVOE", 'E');
-        rotor3 = new Rotor("BDFHJLCPRTXVZNYEIWGAKMUSQO", 'V');
+        rotor1 = new Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q'); // rotor tipo I - derecho
+        rotor2 = new Rotor("AJDKSIRUXBLHWTMCQGZNPYFVOE", 'E'); // rotor tipo II - medio
+        rotor3 = new Rotor("BDFHJLCPRTXVZNYEIWGAKMUSQO", 'V'); // rotor tipo III - izquierdo
         reflector = new Rotor("YRUHQSLDPXNGOKMIEBFZCWVJAT", '-'); //Reflector B
         plugboard = new ConexionClavijas();
     }
@@ -41,8 +41,6 @@ public class MaquinaEnigma {
         rotor2 = r2;
         rotor3 = r3;
         reflector = new Rotor("YRUHQSLDPXNGOKMIEBFZCWVJAT", '-'); //Reflector B
-        //rotor4 = new Rotor("ESOVPZJAYQUIRHXLNFTGKDCMWB");
-        //rotor5 = new Rotor("VZBRGITYUPSDNHLXAWMJQOFECK");
         plugboard = new ConexionClavijas();
     }
     

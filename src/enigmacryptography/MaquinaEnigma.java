@@ -15,8 +15,6 @@ public class MaquinaEnigma {
     private Rotor rotor2i; // inicial medio
     private Rotor rotor3i; // inicial izquierdo
     private final Rotor reflector; // reflector
-    //Rotor rotor4;
-    //Rotor rotor5;
     private ConexionClavijas plugboard;
     
     /**
@@ -28,8 +26,6 @@ public class MaquinaEnigma {
         rotor2 = new Rotor("AJDKSIRUXBLHWTMCQGZNPYFVOE", 'E');
         rotor3 = new Rotor("BDFHJLCPRTXVZNYEIWGAKMUSQO", 'V');
         reflector = new Rotor("YRUHQSLDPXNGOKMIEBFZCWVJAT", '-'); //Reflector B
-        //rotor4 = new Rotor("ESOVPZJAYQUIRHXLNFTGKDCMWB");
-        //rotor5 = new Rotor("VZBRGITYUPSDNHLXAWMJQOFECK");
         plugboard = new ConexionClavijas();
     }
     

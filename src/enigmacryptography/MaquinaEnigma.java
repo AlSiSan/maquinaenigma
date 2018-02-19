@@ -22,9 +22,9 @@ public class MaquinaEnigma {
      */
     public MaquinaEnigma(){
         entrada = new Rotor("ABCDEFGHIJKLMNOPQRSTUVWXYZ", '-');
-        rotor1 = new Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q'); // rotor tipo I - derecho
-        rotor2 = new Rotor("AJDKSIRUXBLHWTMCQGZNPYFVOE", 'E'); // rotor tipo II - medio
-        rotor3 = new Rotor("BDFHJLCPRTXVZNYEIWGAKMUSQO", 'V'); // rotor tipo III - izquierdo
+        rotor1 = new Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q');
+        rotor2 = new Rotor("AJDKSIRUXBLHWTMCQGZNPYFVOE", 'E');
+        rotor3 = new Rotor("BDFHJLCPRTXVZNYEIWGAKMUSQO", 'V');
         reflector = new Rotor("YRUHQSLDPXNGOKMIEBFZCWVJAT", '-'); //Reflector B
         plugboard = new ConexionClavijas();
     }
@@ -57,8 +57,6 @@ public class MaquinaEnigma {
         rotor2 = r2;
         rotor3 = r3;
         reflector = ref;
-        //rotor4 = new Rotor("ESOVPZJAYQUIRHXLNFTGKDCMWB");
-        //rotor5 = new Rotor("VZBRGITYUPSDNHLXAWMJQOFECK");
         plugboard = new ConexionClavijas();
     }
     
@@ -136,34 +134,31 @@ public class MaquinaEnigma {
      * @param b caracter b
      */
     public void ponerClavija(char a, char b){
-        plugboard.establecerConexion(a, b);
-        String aux = "";
-        String contenido = entrada.obtenerContenido();
-        char sus;
-        
-        if(a >= 'a' && a <= 'z'){
-            a = (char) (a + 'A' - 'a');
-        }
-        
-        if(b >= 'a' && b <= 'z'){
-            b = (char) (b + 'A' - 'a');
-        }
-        
-        if(a < b){
-            sus = a;
-        } else{
-            sus = b;
-        }
-        
-        for(int i = 0; i < contenido.length(); i++){
-            if(contenido.charAt(i)==sus){
-                aux += sus;
-                sus = contenido.charAt(i);
-            } else{
-                aux += contenido.charAt(i);
+        if(plugboard.establecerConexion(a, b) != -1){
+            String aux = "";
+            String contenido = entrada.obtenerContenido();
+            char sus;
+            if(a >= 'a' && a <= 'z'){
+                a = (char) (a + 'A' - 'a');
             }
+            if(b >= 'a' && b <= 'z'){
+                b = (char) (b + 'A' - 'a');
+            }
+            if(a < b){
+                sus = a;
+            } else{
+                sus = b;
+            }
+            for(int i = 0; i < contenido.length(); i++){
+                if(contenido.charAt(i)==sus){
+                    aux += sus;
+                    sus = contenido.charAt(i);
+                } else{
+                    aux += contenido.charAt(i);
+                }
+            }
+            entrada = new Rotor(aux, entrada.obtenerNotch());
         }
-        entrada = new Rotor(aux, entrada.obtenerNotch());
     }
     
     /**
@@ -172,15 +167,31 @@ public class MaquinaEnigma {
      * @param b Caracter B
      */
     public void eliminarClavija(char a, char b){
-        if(a >= 'a' && a <= 'z'){
-            a = (char) (a + 'A' - 'a');
+        if(plugboard.eliminarConexion(a, b) != -1){
+            String aux = "";
+            String contenido = entrada.obtenerContenido();
+            char sus;
+            if(a >= 'a' && a <= 'z'){
+                a = (char) (a + 'A' - 'a');
+            }
+            if(b >= 'a' && b <= 'z'){
+                b = (char) (b + 'A' - 'a');
+            }
+            if(a < b){
+                sus = a;
+            } else{
+                sus = b;
+            }
+            for(int i = 0; i < contenido.length(); i++){
+                if(contenido.charAt(i)==sus){
+                    aux += sus;
+                    sus = contenido.charAt(i);
+                } else{
+                    aux += contenido.charAt(i);
+                }
+            }
+            entrada = new Rotor(aux, entrada.obtenerNotch());
         }
-        
-        if(b >= 'a' && b <= 'z'){
-            b = (char) (b + 'A' - 'a');
-        }
-        
-        plugboard.eliminarConexion(a, b);
     }
     
     /**

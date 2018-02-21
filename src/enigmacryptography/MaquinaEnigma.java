@@ -82,8 +82,8 @@ public class MaquinaEnigma {
      * Actualizacion posicion de los rotores
      */
     public void actualizarRotores(){
-        char c1 = rotor1.obtenerContenido().charAt(0);
-        char c2 = rotor2.obtenerContenido().charAt(0);
+        char c1 = rotor1.obtenerContPrev().charAt(0);
+        char c2 = rotor2.obtenerContPrev().charAt(0);
         
         if (c1 == rotor1.obtenerNotch()) {
             if (c2 == rotor2.obtenerNotch()) {
@@ -97,6 +97,7 @@ public class MaquinaEnigma {
             }
         }
         rotor1 = rotor1.giro(1, true);
+        System.out.println(c1);
     }
     
     /**

@@ -87,6 +87,14 @@ public class Rotor {
     }
     
     /**
+     * Obtiene el alfabeto ordenado
+     * @return Contenido previo
+     */
+    public String obtenerContPrev(){
+        return contPrev;
+    }
+    
+    /**
      * Cifra la letra, antes del reflector
      * @param i indice de la letra a cifrar
      * @return indice de la letra cifrada
